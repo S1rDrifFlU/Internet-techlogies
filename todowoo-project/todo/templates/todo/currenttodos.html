@@ -1,0 +1,39 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<style>
+    .important-task {
+        background-color: #ff6666; /* Более приятный красный фон для важных задач */
+        color: white; /* Текст белого цвета для лучшей видимости */
+    }
+
+    .important-task a {
+        text-decoration: none; /* Убираем подчеркивание для ссылок внутри важных задач */
+        color: white; /* Цвет текста ссылок внутри важных задач (белый) */
+    }
+
+    .regular-task a {
+        text-decoration: none; /* Убираем подчеркивание для ссылок внутри обычных задач */
+        color: #333; /* Более приятный цвет текста ссылок для обычных задач */
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-3">Current Todos</h1>
+            <ul class="list-group mt-3">
+                {% for todo in todos %}
+                <li class="list-group-item {% if todo.important %}important-task{% else %}regular-task{% endif %}">
+                    <a href="{% url 'viewtodo' todo.id %}">
+                        {{ todo.title }}
+                        {% if todo.memo %} - {{ todo.memo }} {% endif %}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+</style>
+{% endblock %}

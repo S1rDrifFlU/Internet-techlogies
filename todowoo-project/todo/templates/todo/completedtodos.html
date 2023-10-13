@@ -1,0 +1,37 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<style>
+    .completed-task {
+        background-color: #66ff66; /* Более приятный зеленый фон для завершенных задач */
+        color: #333; /* Более приятный цвет текста для завершенных задач */
+        text-decoration: none; /* Убираем подчеркивание для ссылок внутри завершенных задач */
+        display: block; /* Отображаем элемент как блочный (чтобы текст не смешивался) */
+        padding: 10px; /* Поля для лучшего визуального разделения */
+        margin-bottom: 10px; /* Расстояние между завершенными задачами */
+    }
+
+    .completed-task a {
+        color: #333; /* Более приятный цвет текста для ссылок внутри завершенных задач */
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="mt-3">Completed Todos</h1>
+            <ul class="list-group mt-3">
+                {% for todo in todos %}
+                <li class="list-group-item completed-task">
+                    <a href="{% url 'viewtodo' todo.id %}">
+                        {% if todo.important %}<b>{{ todo.title }}</b>{% else %}{{ todo.title }}{% endif %}
+                        {% if todo.memo %} - {{ todo.memo }} {% endif %} - {{ todo.datecompleted|date:'M j Y H:i' }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+</style>
+{% endblock %}

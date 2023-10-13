@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>This is a new page</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add your custom CSS here */
+        body {
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generate your password</h1>
+        <form action="{% url 'password' %}">
+            <div class="form-group">
+                <label for="length">Password Length:</label>
+                <select class="form-control" name="length">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12" selected="selected">12</option>
+                </select>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="uppercase" id="uppercase">
+                <label class="form-check-label" for="uppercase">Uppercase</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="numbers" id="numbers">
+                <label class="form-check-label" for="numbers">Numbers</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="special" id="special">
+                <label class="form-check-label" for="special">Special Characters</label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Generate Password</button>
+        </form>
+        <br>
+        <a href="{% url 'about' %}" class="btn btn-secondary">About the creator</a>
+    </div>
+</body>
+</html>

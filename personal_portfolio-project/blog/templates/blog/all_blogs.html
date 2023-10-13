@@ -1,0 +1,15 @@
+
+
+<h2>We have a {{blogs.count}} post{{blogs.count|pluralize}}</h2>
+
+{%for blog in blogs%}
+
+
+
+<a href="{% url 'blog:detail' blog.id%}"><h1>{{blog.title}}</h1></a>
+<h6>{{blog.created_at|date:'M d Y'|upper}}</h6>
+<p>{{blog.description|striptags|truncatechars:100}}</p>
+
+
+
+{%endfor%}
