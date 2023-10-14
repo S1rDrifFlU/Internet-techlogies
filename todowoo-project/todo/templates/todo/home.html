@@ -1,6 +1,31 @@
-{% extends 'todo/base.html'%}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+{% extends 'todo/base.html' %}
 
-{%block content%}
-
-Home
-{%endblock%}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Home</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+                vehicula magna sit amet facilisis. Integer posuere bibendum sem at
+                gravida. Cras sit amet elit eget felis efficitur fringilla. In nec
+                augue in purus commodo consequat. Aliquam erat volutpat. Quisque vel
+                justo elit.
+            </p>
+            <p>
+                Nulla facilisi. In hac habitasse platea dictumst. Sed eget odio
+                elementum, convallis tortor id, aliquam massa. Vestibulum a purus id
+                nunc elementum suscipit.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</html>
